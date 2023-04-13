@@ -1,0 +1,59 @@
+<div mat-dialog-title>
+  <h1>Nuevo Equipo</h1>
+</div>
+<form [formGroup]="teamForm" (ngSubmit)="onFormSubmit()">
+  <div mat-dialog-content class="content">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput type="text" placeholder="Eje: Fútbol Club Barcelona" formControlName="name" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Estadio</mat-label>
+        <input matInput matInput type="text" placeholder="Eje: Camp Nou" formControlName="stadium" />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Sitio web</mat-label>
+        <input matInput type="text" placeholder="Eje: fcbarcelona.es" formControlName="website" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Nacionalidad</mat-label>
+        <input matInput type="text" placeholder="Eje: Española" formControlName="nationality" />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Año de Fundación</mat-label>
+        <input matInput [matDatepicker]="picker" placeholder="Eje: 11/29/1899" formControlName="year" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Entrenador</mat-label>
+        <input matInput type="text" placeholder="Eje: Xavi Hernández" formControlName="coach" />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Capacidad</mat-label>
+        <input matInput type="number" placeholder="Eje: 99354" formControlName="size" />
+        <mat-hint>Espectadores</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Valor</mat-label>
+        <input matInput type="number" placeholder="Eje: 1000000" formControlName="price" />
+        <mat-hint>Dólares</mat-hint>
+      </mat-form-field>
+    </div>
+  </div>
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button>Cancelar</button>
+    <button mat-raised-button color="primary" type="submit">Guardar</button>
+  </div>
+</form>
